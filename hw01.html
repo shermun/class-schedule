@@ -1,0 +1,140 @@
+<html>
+
+<head>
+    <style type="text/css">
+        table {
+            width: 80%;
+            height: 85%;
+            margin: 3% auto;
+        }
+        th{
+            text-emphasis-color: red;
+        }
+        td,
+        th {
+            font-size:3em;
+            text-align: center;
+            background-color: rgb(248, 244, 239);
+        }
+
+        table,
+        th,
+        td {
+            table-layout: fixed;
+            border: 1px solid rgb(238, 132, 132);
+        }
+
+        .a{background-color: #dbdbf8}
+        .b{background-color: #cdf3ea}
+        .c{background-color: #fae8ce}
+        .d{background-color: #fde2e2}
+        .e{background-color: #e8ccff}
+        .f{background-color: beige}
+        .g{background-color: #f3cdf3}
+        .h{background-color: #d5e9f3}
+
+
+        td:hover {
+            position: relative;
+            top: 5px;
+            left: 10px;
+            box-shadow: 7px 5px 6px black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <table>
+
+        <tr>
+            <th colspan=7 align='center'>课程表</th>
+        </tr>
+        <tr>
+            <th colspan=2></th>
+            <th class="diag-main">星期一</th>
+            <th class="diag-main">星期二</th>
+            <th class="diag-main">星期三</th>
+            <th class="diag-main">星期四</th>
+            <th class="diag-main">星期五</th>
+        </tr>
+
+        <tr>
+            <th rowspan=4;>上午</th>
+            <th>
+                <p>第一节</p>(08:20-09:05)
+            </th>
+            <td rowspan=2 class="a"> web应用开发技术_01西区第一公共教学楼C411 </td>
+            <td rowspan=2 class="b"> 大学英语四级（A）_64西区第一公共教学楼C221 </td>
+            <td rowspan=2 class="c">管理信息系统_02西区第一公共教学楼C105 </td>
+            <td rowspan=2 class="d">
+                <p>数据库原理及应用_01西区第一公共教学楼B405</p>
+                运营管理_02西区第一公共教学楼B405
+            </td>
+            <td rowspan=2 class="b">
+                <p>大学英语四级（A）_64西区外语学院楼219</p>
+                大学英语四级（A）_64西区第一公共教学楼C219
+            </td>
+
+        </tr>
+
+        <tr>
+            <th>
+                <p>第二节</p>(09:15-10:00)
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <p>第三节</p>(10:20-11:05)
+            </th>
+            <td rowspan=2 class="g">毛泽东思想与中国特色社会主义理论体系概论_13西区第一公共教学楼A120</td>
+            <td rowspan=2 class="f">管理科学基础_01(西区第一公共教学楼C411) </td>
+            <td rowspan=2 class="g">毛泽东思想与中国特色社会主义理论体系概论_13西区第一公共教学楼A120</td>
+            <td rowspan=2 class="f">管理科学基础_01西区第一公共教学楼C411 </td>
+            <td rowspan=2 class="d">运营管理_02西区第一公共教学楼B405</td>
+        </tr>
+        <tr>
+            <th>
+                <p>第四节</p>(11:15-12:00)
+            </th>
+        </tr>
+
+
+        <tr>
+            <th colspan=7 align='center'>午休</th>
+        </tr>
+        <tr>
+            <th rowspan=4>下午</th>
+            <th>
+                <p>第五节</p>(14:00-14:45)
+            </th>
+            <td rowspan=2 class="c">管理信息系统_02西区第一公共教学楼C105 </td>
+            <td rowspan=2 class="h">形势与政策2_41西区第一公共教学楼C123 </td>
+            <td rowspan=2 class="e">会计学_01西区第一公共教学楼B101</td>
+            <td rowspan=2 class="h">体育</td>
+            <td rowspan=2 class="g"> 毛泽东思想与中国特色社会主义理论体系概论_13西区第一公共教学楼A120 </td>
+        </tr>
+        <tr>
+            <th>
+                <p>第六节</p>(14:55-15:40)
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <p>第七节</p>(16:00-16:45)
+            </th>
+            <td rowspan=2 class="h"> 电子商务_01西区第一公共教学楼B303 </td>
+            <td rowspan=2 class="d">数据库原理及应用_01西区第一公共教学楼C109 </td>
+            <td rowspan=2></td>
+            <td rowspan=2 class="e"> 会计学_01西区第一公共教学楼B101 </td>
+            <td rowspan=2></td>
+        </tr>
+        <tr>
+            <th>
+                <p>第八节</p>(16:55-17:40)
+            </th>
+        </tr>
+    </table>
+</body>
+
+</html>
