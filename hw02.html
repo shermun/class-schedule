@@ -1,0 +1,439 @@
+<html>
+
+<head>
+    <style>
+        table {
+            width: 80%;
+            height: 80%;
+            margin: 3% auto;
+        }
+
+        td,
+        th {
+            font-size: 1em;
+            text-align: center;
+            background-color: rgb(209, 243, 248);
+        }
+
+        table,
+        th,
+        td {
+            table-layout: fixed;
+            border: 1px solid rgb(238, 132, 132);
+            border-collapse: collapse;
+        }
+
+        caption {
+            font:1.5em bold;
+        }
+
+        td:hover {
+            position: relative;
+            top: 5px;
+            left: 7px;
+            box-shadow: 7px 5px 6px black;
+        }
+
+        .cell>.detail {
+            display: none;
+        }
+
+        .cell>.detail.open {
+            display: inline-table;
+            position: relative;
+            height: 4em;
+            width: 10em;
+            text-align:left;
+            background-color: antiquewhite;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <script>
+        var tblEl = document.createElement("table");
+        var cap = document.createElement('caption');
+        cap.innerHTML = '课程表';
+        tblEl.append(cap);
+
+        var tr0 = document.createElement('tr');
+        var th1 = document.createElement('th');
+        th1.innerHTML = '节数/星期';
+        var th2 = document.createElement('th');
+        th2.innerHTML = "星期一";
+        var th3 = document.createElement('th');
+        th3.innerHTML = "星期二";
+        var th4 = document.createElement('th');
+        th4.innerHTML = "星期三";
+        var th5 = document.createElement('th');
+        th5.innerHTML = "星期四";
+        var th6 = document.createElement('th');
+        th6.innerHTML = "星期五";
+
+        tr0.append(th1);
+        tr0.append(th2);
+        tr0.append(th3);
+        tr0.append(th4);
+        tr0.append(th5);
+        tr0.append(th6);
+        tblEl.append(tr0);
+
+        var tr1 = document.createElement('tr');
+        var th1 = document.createElement('th');
+        th1.innerHTML = '第一大节<p>(08:20-09:05)</p><p>(09:15-10:00)</p>';
+        var td1 = document.createElement('td');
+        td1.innerHTML = 'web应用开发技术';
+        var td2 = document.createElement('td');
+        td2.innerHTML = '大学英语四级（A）';
+        var td3 = document.createElement('td');
+        td3.innerHTML = '管理信息系统';
+        var td4 = document.createElement('td');
+        td4.innerHTML = '<p>（单周）数据库原理及应用</p><p>（双周）运营管理</p>';
+        var td5 = document.createElement('td');
+        td5.innerHTML = '大学英语四级（A）';
+
+        tr1.append(th1);
+        tr1.append(td1);
+        tr1.append(td2);
+        tr1.append(td3);
+        tr1.append(td4);
+        tr1.append(td5);
+        tblEl.append(tr1);
+
+        var tr2 = document.createElement('tr');
+        var th1 = document.createElement('th');
+        th1.innerHTML = '第二大节<p>(10:20-11:05)</p><p>(11:15-12:00)</p>';
+        var td6 = document.createElement('td');
+        td6.innerHTML = '毛泽东思想与中国特色社会主义理论体系概论';
+        var td7 = document.createElement('td');
+        td7.innerHTML = '管理科学基础';
+        var td8 = document.createElement('td');
+        td8.innerHTML = '毛泽东思想与中国特色社会主义理论体系概论';
+        var td9 = document.createElement('td');
+        td9.innerHTML = '管理科学基础';
+        var td10 = document.createElement('td');
+        td10.innerHTML = '运营管理';
+
+        tr2.append(th1);
+        tr2.append(td6);
+        tr2.append(td7);
+        tr2.append(td8);
+        tr2.append(td9);
+        tr2.append(td10);
+        tblEl.append(tr2);
+
+        var tr3 = document.createElement('tr');
+        var th1 = document.createElement('th');
+        th1.innerHTML = '第三大节<p>(14:00-14:45)</p><p>(14:55-15:40)</p>';
+        var td11 = document.createElement('td');
+        td11.innerHTML = '管理信息系统';
+        var td12 = document.createElement('td');
+        td12.innerHTML = '形势与政策2';
+        var td13 = document.createElement('td');
+        td13.innerHTML = '会计学';
+        var td14 = document.createElement('td');
+        td14.innerHTML = '体育';
+        var td15 = document.createElement('td');
+        td15.innerHTML = '毛泽东思想与中国特色社会主义理论体系概论';
+
+        tr3.append(th1);
+        tr3.append(td11);
+        tr3.append(td12);
+        tr3.append(td13);
+        tr3.append(td14);
+        tr3.append(td15);
+        tblEl.append(tr3);
+
+        var tr4 = document.createElement('tr');
+        var th1 = document.createElement('th');
+        th1.innerHTML = '第四大节<p>(16:00-16:45)</p><p>(16:55-17:40)</p>';
+        var td16 = document.createElement('td');
+        td16.innerHTML = '电子商务';
+        var td17 = document.createElement('td');
+        td17.innerHTML = '数据库原理及应用';
+        var td18 = document.createElement('td');
+        td18.innerHTML = '';
+        var td19 = document.createElement('td');
+        td19.innerHTML = '会计学';
+        var td20 = document.createElement('td');
+        td20.innerHTML = '';
+
+        tr4.append(th1);
+        tr4.append(td16);
+        tr4.append(td17);
+        tr4.append(td18);
+        tr4.append(td19);
+        tr4.append(td20);
+        tblEl.append(tr4);
+
+        var divEl = document.createElement('div')
+        divEl.className = 'cell';
+        var detailDivEl = document.createElement('div');
+        detailDivEl.className = 'detail';
+        var classname = document.createElement('div');
+
+        td1.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：上午第一大节</p><p>1-15周</p><p>西区第一公共教学楼,C411，吕成功</p>';
+            divEl.append(detailDivEl);
+            td1.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td2.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：上午第一大节</p><p>1-17周</p><p>西区第一公共教学楼,C221，张蔚</p>';
+            divEl.append(detailDivEl);
+            td2.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td3.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：上午第一大节</p><p>1-15周（单周）</p><p>西区第一公共教学楼,C105，刘烨</p>';
+            divEl.append(detailDivEl);
+            td3.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td4.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：上午第一大节</p><p>1-15周（单周）</p><p>西区第一公共教学楼,B405,刘亮</p><p>2-14周（双周）</p><p>西区第一公共教学楼,B405，吴君</p>';
+            divEl.append(detailDivEl);
+            td4.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td5.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：上午第一大节</p><p>1-17周</p><p>（单周）西区外语学院楼,219,张蔚</p><p>（双周）西区第一公共教学楼,C219,张蔚</p>';
+            divEl.append(detailDivEl);
+            td5.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td6.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：上午第二大节</p><p>1-16周</p><p>西区第一公共教学楼,A120,顾洪英</p>';
+            divEl.append(detailDivEl);
+            td6.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td7.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：上午第二大节</p><p>3-17周</p><p>西区第一公共教学楼,C411,赵方方</p>';
+            divEl.append(detailDivEl);
+            td7.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td8.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：上午第二大节</p><p>1-16周</p><p>西区第一公共教学楼,A120,顾洪英</p>';
+            divEl.append(detailDivEl);
+            td8.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td9.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：上午第二大节</p><p>3-17周</p><p>西区第一公共教学楼,C411,赵方方</p>';
+            divEl.append(detailDivEl);
+            td9.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td10.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：上午第二大节</p><p>1-15周</p><p>西区第一公共教学楼,B405,刘亮</p>';
+            divEl.append(detailDivEl);
+            td10.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td11.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：下午第一大节</p><p>1-15周</p><p>西区第一公共教学楼,C105,刘烨</p>';
+            divEl.append(detailDivEl);
+            td11.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td12.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：下午第一大节</p><p>5-7周</p><p>西区第一公共教学楼,C123,李坤</p>';
+            divEl.append(detailDivEl);
+            td12.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td13.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：下午第一大节</p><p>1-17周（单周）</p><p>西区第一公共教学楼,B101,刘晓晖</p>';
+            divEl.append(detailDivEl);
+            td13.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td14.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：下午第一大节</p><p>1-18周</p><p>西区操场,虚拟1,田建生</p>';
+            divEl.append(detailDivEl);
+            td14.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td15.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：下午第一大节</p><p>1-16周</p><p>西区第一公共教学楼,A120,顾洪英</p>';
+            divEl.append(detailDivEl);
+            td15.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td16.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：下午第二大节</p><p>3-17周</p><p>西区第一公共教学楼,B303,张亮</p>';
+            divEl.append(detailDivEl);
+            td16.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td17.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：下午第二大节</p><p>1-15周</p><p>西区第一公共教学楼,C109,吴君</p>';
+            divEl.append(detailDivEl);
+            td17.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        td19.onclick = function (event) {
+            detailDivEl.innerHTML = '<p>时间：下午第二大节</p><p>1-17周</p><p>西区第一公共教学楼,B101,刘晓晖</p>';
+            divEl.append(detailDivEl);
+            td19.append(divEl);
+            var names = detailDivEl.className.split(' ');
+            if (names.indexOf('open') >= 0) {
+                names = names.filter((x) => x != 'open')
+            } else {
+                names.push('open');
+            }
+            console.log(names);
+            detailDivEl.className = names.join(' ');
+        };
+
+        detailDivEl.onmouseout = function (event) {
+          let names = detailDivEl.className.split(' ');
+          names = names.filter((x) => x != 'open')
+          detailDivEl.className = names.join(' ');
+        }
+        document.body.append(tblEl);
+
+    </script>
+</body>
+
+</html>
